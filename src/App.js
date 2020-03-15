@@ -17,7 +17,7 @@ const app = new Clarifai.App({
 const particlesOptions = {
   particles: {
     number: {
-      value: 80,
+      value: 60,
       density: {
         enable: true,
         value_area: 800
@@ -32,10 +32,10 @@ const particlesOptions = {
     line_linked: {
       enable_auto: true,
       distance: 200,
-      opacity: 0.7
+      opacity: 0.8
     },
     move: {
-      speed: 6,
+      speed: 3,
       out_mode: 'out'
     }
   },
