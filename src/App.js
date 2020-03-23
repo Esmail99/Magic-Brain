@@ -8,6 +8,7 @@ import Logo from './Components/Logo/Logo';
 import Rank from './Components/Rank/Rank';
 import InputForm from './Components/InputForm/InputForm';
 import InputImage from './Components/InputImage/InputImage';
+import Hints from './Components/Hints/Hints';
 
 const particlesOptions = {
   particles: {
@@ -27,7 +28,7 @@ const particlesOptions = {
     line_linked: {
       enable_auto: true,
       distance: 180,
-      opacity: 0.3
+      opacity: 0.5
     },
     move: {
       speed: 3,
@@ -51,6 +52,7 @@ const initialState = {
   box: {},
   route: 'signin',
   isSignedin: false,
+  userCanUseIt: false,
   user: {
     id: '',
     name: '',
@@ -99,7 +101,7 @@ class App extends Component {
 
   btnOnClick = () => {
     this.setState({imageUrl: this.state.input})
-    fetch('https://fast-tor-49371.herokuapp.com/imageurl/',{
+    fetch('https://evening-savannah-93967.herokuapp.com/imageurl/',{
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -110,7 +112,7 @@ class App extends Component {
     .then(response => {
       if(response.outputs[0].id)    // to make sure it responded with data not error!
       {
-        fetch('https://fast-tor-49371.herokuapp.com/image/',{
+        fetch('https://evening-savannah-93967.herokuapp.com/image/',{
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
@@ -119,7 +121,8 @@ class App extends Component {
         })
         .then(response => response.json())
         .then(data => {
-          this.setState(Object.assign(this.state.user,{ entries: data })) 
+          this.setState({userCanUseIt: true});
+          this.setState(Object.assign(this.state.user,{ entries: data }));
           //Object.assign instead of setState to update only the entries and leave everything else as it is..
         })
       }
@@ -155,6 +158,11 @@ class App extends Component {
                 <Rank name={this.state.user.name} entries={this.state.user.entries} />
                 <InputForm inputOnChange={this.inputOnChange} btnOnClick={this.btnOnClick} />
                 <InputImage imageURL={this.state.imageUrl} box={this.state.box} />
+                {
+                  this.state.userCanUseIt === false
+                  ? <Hints></Hints> 
+                  : <span></span>
+                }
               </div>
           )
         }
