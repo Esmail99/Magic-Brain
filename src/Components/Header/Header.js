@@ -7,7 +7,7 @@ const Header = ({ changeRoute,isSignedin }) =>{
                 <nav>
                     <p  
                         onClick={() => changeRoute('signin')} 
-                        className='f4 link dim black underline pa2 mr2 mr4 pointer'>
+                        className='f4 link dim white underline pa2 mr2 mr4 pointer'>
                         Sign Out
                     </p>
                 </nav>
@@ -15,7 +15,7 @@ const Header = ({ changeRoute,isSignedin }) =>{
         }
         else{
             return (
-                <nav className='f4 link black underline pa2 mr2 mr4 pointer'>
+                <nav className='f4 link white underline pa2 mr2 mr4 pointer'>
                     <p
                         onClick={() => changeRoute('register')}
                         className='dim mr3' >

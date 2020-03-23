@@ -5,7 +5,8 @@ class Signin extends React.Component{
         super(props);
         this.state = {
             signInEmail: '',
-            signInPassword: ''
+            signInPassword: '',
+            checkError: false
         }
     }
 
@@ -33,7 +34,7 @@ class Signin extends React.Component{
                 this.props.changeRoute('home');
             }
             else{
-                alert('Wrong email or password!');
+                this.setState({ checkError: true });
             }
         })
     }
@@ -41,16 +42,21 @@ class Signin extends React.Component{
     render() {
         const { changeRoute } = this.props;
         return(
-            <article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw5 shadow-5 center">
-                <main className="pa4 black-80">
+            <article className="br3 ba white b--white-90 mv4 w-100 w-50-m w-25-l mw5 shadow-5 center">
+                <main className="pa4 white">
                     <div className="measure">
                         <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
                         <legend className="f1 fw6 ph0 mh0">Sign In</legend>
+                        {
+                            this.state.checkError === true
+                            ? <p className='f5 underline calisto' style={{color: "#0EE7E7"}}>Wrong Email or Password..</p>
+                            : <span></span>
+                        }
                         <div className="mt3">
                             <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
                             <input 
                                 onChange= { this.onEmailChange }
-                                className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+                                className="pa2 input-reset ba b--white-90 bg-transparent hover-bg-black hover-white w-100" 
                                 type="email" 
                                 name="email-address"  
                                 id="email-address"    
@@ -60,25 +66,28 @@ class Signin extends React.Component{
                             <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
                             <input 
                                 onChange={ this.onPasswordChange }
-                                className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+                                className="b pa2 input-reset ba b--white-90 bg-transparent hover-bg-black hover-white w-100" 
                                 type="password" 
                                 name="password"  
                                 id="password" 
                             />
                         </div>
                         </fieldset>
-                        <div className="">
-                        <input 
-                            onClick= { this.onSubmitClick }
-                            className="b ph2 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-                            type="submit" 
-                            value="Sign in" />
+                        <div>
+                            <input 
+                                onClick= { this.onSubmitClick }
+                                className="b ph2 pv2 input-reset ba b--transparent bg-transparent br3 white-90 grow pointer f4 dib garamond" 
+                                style={{backgroundColor: '#E63946'}}
+                                type="submit" 
+                                value="Sign in" 
+                            />
                         </div>
                         <div className="lh-copy mt3">
-                        <p 
-                            onClick={() => changeRoute('register')}
-                            className="f6 link dim black db pointer">
-                            Register</p>
+                            <p 
+                                onClick={() => changeRoute('register')}
+                                className="f6 link dim white db pointer">
+                                Register
+                            </p>
                         </div>
                     </div>
                 </main>

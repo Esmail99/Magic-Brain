@@ -6,7 +6,8 @@ class Registration extends React.Component {
         this.state = {
             registerEmail: '',
             registerPassword: '',
-            registerUsername: ''
+            registerUsername: '',
+            checkError: false
         }
     }
 
@@ -37,23 +38,28 @@ class Registration extends React.Component {
                 this.props.loadUser(data);
                 this.props.changeRoute('home');
             } else {
-                alert('UNABLE TO REGISTER!');
+                this.setState({ checkError: true });
             }
         })
     }
 
     render() {
         return(
-            <article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw5 shadow-5 center">
-                <main className="pa4 black-80">
+            <article className="br3 ba white b--white-90 mv4 w-100 w-50-m w-25-l mw5 shadow-5 center">
+                <main className="pa4 white">
                     <div className="measure">
                         <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
                             <legend className="f2 fw6 ph0 mh0">Registration</legend>
+                            {
+                                this.state.checkError === true
+                                ? <p className='f5 underline calisto' style={{color: "#0EE7E7"}}>Unable To Register..</p>
+                                : <span></span>
+                            }
                             <div className="mt3">
                                 <label className="db fw6 lh-copy f6" htmlFor="name">First Name</label>
                                 <input 
                                     onChange={ this.onUsernameChange }
-                                    className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+                                    className="pa2 input-reset ba bg-transparent hover-bg-black b--white-90 hover-white w-100" 
                                     type="text" 
                                     name="name"  
                                     id="name" 
@@ -63,7 +69,7 @@ class Registration extends React.Component {
                                 <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
                                 <input 
                                     onChange={ this.onEmailChange }
-                                    className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+                                    className="pa2 input-reset ba bg-transparent hover-bg-black b--white-90 hover-white w-100" 
                                     type="email" 
                                     name="email-address" 
                                     id="email-address" 
@@ -73,7 +79,7 @@ class Registration extends React.Component {
                                 <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
                                 <input 
                                     onChange={ this.onPasswordChange }
-                                    className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+                                    className="b pa2 input-reset ba bg-transparent hover-bg-black b--white-90 hover-white w-100" 
                                     type="password" 
                                     name="password" 
                                     id="password" 
@@ -81,11 +87,13 @@ class Registration extends React.Component {
                             </div>
                         </fieldset>
                         <div className="">
-                        <input 
-                            onClick= { this.onRegisterClick }
-                            className="b ph2 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-                            type="submit" 
-                            value="Register" />
+                            <input 
+                                onClick= { this.onRegisterClick }
+                                className="b ph2 pv2 input-reset ba b--transparent bg-transparent br3 white-90 grow pointer f4 dib garamond" 
+                                style={{backgroundColor: '#E63946'}}
+                                type="submit" 
+                                value="Register" 
+                            />
                         </div>
                         <div className="lh-copy mt3">
                         </div>

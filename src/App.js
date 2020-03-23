@@ -22,12 +22,12 @@ const particlesOptions = {
       type: 'circle'
     },
     size: {
-      value: 3
+      value: 2
     },
     line_linked: {
       enable_auto: true,
       distance: 180,
-      opacity: 0.8
+      opacity: 0.3
     },
     move: {
       speed: 3,
