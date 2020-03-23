@@ -13,7 +13,7 @@ const Hints = () => {
                 <h3 className='mt5'>Phones : </h3>
                 <p>1. <b>Search</b> images on Google.</p>
                 <p>2. <b>Open</b> the image you want.</p>
-                <p>3. Right click on it and choose <b>Open image in new tap</b>.</p>
+                <p>3. Press and hold on it and choose <b>Open image in new tap</b>.</p>
                 <p>4. <b>Copy</b> the new tap URL.</p>
             </div>
         </div>
