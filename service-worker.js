@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Magic-Brain/precache-manifest.7c83db107ffabf448e6f6a89ac1fb28d.js"
+  "/Magic-Brain/precache-manifest.153f12d7f5e8c4816caac19e4405c764.js"
 );
 
 self.addEventListener('message', (event) => {
