@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Magic-Brain/static/css/main.1c105d37.chunk.css",
-    "main.js": "/Magic-Brain/static/js/main.54324315.chunk.js",
-    "main.js.map": "/Magic-Brain/static/js/main.54324315.chunk.js.map",
+    "main.js": "/Magic-Brain/static/js/main.e356554b.chunk.js",
+    "main.js.map": "/Magic-Brain/static/js/main.e356554b.chunk.js.map",
     "runtime-main.js": "/Magic-Brain/static/js/runtime-main.2cdb60d1.js",
     "runtime-main.js.map": "/Magic-Brain/static/js/runtime-main.2cdb60d1.js.map",
     "static/css/2.3b6f1bda.chunk.css": "/Magic-Brain/static/css/2.3b6f1bda.chunk.css",
     "static/js/2.0f5d78cc.chunk.js": "/Magic-Brain/static/js/2.0f5d78cc.chunk.js",
     "static/js/2.0f5d78cc.chunk.js.map": "/Magic-Brain/static/js/2.0f5d78cc.chunk.js.map",
     "index.html": "/Magic-Brain/index.html",
-    "precache-manifest.153f12d7f5e8c4816caac19e4405c764.js": "/Magic-Brain/precache-manifest.153f12d7f5e8c4816caac19e4405c764.js",
+    "precache-manifest.1085fe0968fae7f8c537d07fd48ed0b2.js": "/Magic-Brain/precache-manifest.1085fe0968fae7f8c537d07fd48ed0b2.js",
     "service-worker.js": "/Magic-Brain/service-worker.js",
     "static/css/2.3b6f1bda.chunk.css.map": "/Magic-Brain/static/css/2.3b6f1bda.chunk.css.map",
     "static/css/main.1c105d37.chunk.css.map": "/Magic-Brain/static/css/main.1c105d37.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.3b6f1bda.chunk.css",
     "static/js/2.0f5d78cc.chunk.js",
     "static/css/main.1c105d37.chunk.css",
-    "static/js/main.54324315.chunk.js"
+    "static/js/main.e356554b.chunk.js"
   ]
 }
