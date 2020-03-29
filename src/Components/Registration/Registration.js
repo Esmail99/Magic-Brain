@@ -10,7 +10,7 @@ class Registration extends React.Component {
             checkError: false
         }
     }
-
+    
     onEmailChange = (event) => {
         this.setState({ registerEmail: event.target.value })
     }
@@ -18,11 +18,13 @@ class Registration extends React.Component {
     onPasswordChange = (event) => {
         this.setState({ registerPassword: event.target.value })
     }
+
     onUsernameChange = (event) => {
         this.setState({ registerUsername: event.target.value })
     }
 
-    onRegisterClick = () => {
+    onRegisterClick = (event) => {
+        event.preventDefault();
         fetch('https://evening-savannah-93967.herokuapp.com/register/',{
             method: 'post',
             headers: {'Content-Type':'application/json'},
@@ -49,7 +51,7 @@ class Registration extends React.Component {
                 <h1 className='f1 garamond mb5 light-red'>FACE DETECTION APP</h1>
                 <article className="br3 ba white b--white-90 mv4 w-100 w-50-m w-25-l mw5 shadow-5 center">
                     <main className="pa4 white">
-                        <div className="measure">
+                        <form className="measure" onSubmit={this.onRegisterClick}>
                             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
                                 <legend className="f2 fw6 ph0 mh0">Registration</legend>
                                 {
@@ -65,6 +67,7 @@ class Registration extends React.Component {
                                         type="text" 
                                         name="name"  
                                         id="name" 
+                                        required
                                     />
                                 </div>
                                 <div className="mt3">
@@ -74,7 +77,8 @@ class Registration extends React.Component {
                                         className="pa2 input-reset ba bg-transparent hover-bg-black b--white-90 hover-white w-100" 
                                         type="email" 
                                         name="email-address" 
-                                        id="email-address" 
+                                        id="email-address"
+                                        required 
                                     />
                                 </div>
                                 <div className="mv3">
@@ -85,20 +89,18 @@ class Registration extends React.Component {
                                         type="password" 
                                         name="password" 
                                         id="password" 
+                                        required
                                     />
                                 </div>
                             </fieldset>
-                            <div className="">
+                            <div>
                                 <input 
-                                    onClick= { this.onRegisterClick }
                                     className="b ph2 pv2 input-reset ba b--transparent bg-red br3 white-90 grow pointer f4 dib garamond" 
                                     type="submit" 
-                                    value="Register" 
+                                    value="Register"
                                 />
                             </div>
-                            <div className="lh-copy mt3">
-                            </div>
-                        </div>
+                        </form>
                     </main>
                 </article>
             </div>

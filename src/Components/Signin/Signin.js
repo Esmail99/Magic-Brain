@@ -18,7 +18,8 @@ class Signin extends React.Component{
         this.setState({ signInPassword: event.target.value })
     }
 
-    onSubmitClick = () => {
+    onSubmitClick = (event) => {
+        event.preventDefault();
         fetch('https://evening-savannah-93967.herokuapp.com/signin/',{
             method: 'post',
             headers: {'Content-Type': 'application/json'},
@@ -46,7 +47,7 @@ class Signin extends React.Component{
                 <h1 className='f1 garamond mb5 light-red'>FACE DETECTION APP</h1>
                 <article className="br3 ba white b--white-90 mv4 w-100 w-50-m w-25-l mw5 shadow-5 center">
                     <main className="pa4 white">
-                        <div className="measure">
+                        <form className="measure" onSubmit={this.onSubmitClick}>
                             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
                             <legend className="f2 fw6 ph0 mh0">Sign In</legend>
                             {
@@ -61,7 +62,8 @@ class Signin extends React.Component{
                                     className="pa2 input-reset ba b--white-90 bg-transparent hover-bg-black hover-white w-100" 
                                     type="email" 
                                     name="email-address"  
-                                    id="email-address"    
+                                    id="email-address"  
+                                    required  
                                 />
                             </div>
                             <div className="mv3">
@@ -72,12 +74,12 @@ class Signin extends React.Component{
                                     type="password" 
                                     name="password"  
                                     id="password" 
+                                    required
                                 />
                             </div>
                             </fieldset>
                             <div>
                                 <input 
-                                    onClick= { this.onSubmitClick }
                                     className="b ph2 pv2 input-reset ba b--transparent bg-red br3 white-90 grow pointer f4 dib garamond" 
                                     type="submit" 
                                     value="Sign in" 
@@ -90,7 +92,7 @@ class Signin extends React.Component{
                                     Register
                                 </p>
                             </div>
-                        </div>
+                        </form>
                     </main>
                 </article>
             </div>
